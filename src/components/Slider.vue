@@ -1,28 +1,29 @@
 <template>
+  <div class="">
+    <Header />
 
-  <div id="slider" class="slider" >
-    <v-touch @pan="mouseMoving" @panend="stopDrag" @swipe="startDrag">
-      <div class="slider-cards" :style="`transform: translate3d(${cardsX}px,0,0)`">
-        <div
+    <div id="slider" class="slider" >
+      <v-touch @pan="mouseMoving" @panend="stopDrag" @swipe="startDrag">
+        <div class="slider-cards" :style="`transform: translate3d(${cardsX}px,0,0)`">
+          <div
 
-        v-for="(slide, index) in slides"
-        :key="index"
-        class="slider-card"
-        >
-        <img :src="slide.image" :alt="slide.title" draggable="false">
+          v-for="num in 3"
+          :key="index"
+          class="slider-card"
+          >
+          <Card :slide="slide" />
+        </div>
       </div>
-    </div>
-  </v-touch>
-  <div class="slider-info">
-    <h1>{{selectedSlide.title}}</h1>
-    <p>{{selectedSlide.description}}</p>
-    <button class="slider-button">BOOK</button>
+    </v-touch>
+
   </div>
 </div>
 
 </template>
 
 <script>
+import Card from './Card';
+import Header from './Header'
 
 export default {
   data() {
@@ -54,11 +55,7 @@ export default {
       initialX: 0
     }
   },
-  computed: {
-    selectedSlide () {
-      return this.slides[this.selectedIndex]
-    }
-  },
+
   methods: {
     startDrag (e) {
       this.initialMouseX = e.srcEvent.clientX
@@ -70,28 +67,18 @@ export default {
       const nearestSlide = -Math.round(this.cardsX / cardWidth)
       this.selectedIndex = Math.min(Math.max(0, nearestSlide), this.slides.length -1)
       TweenLite.to(this, 0.3, {cardsX: -this.selectedIndex * cardWidth})
-      // console.log(nearestSlide);
-      // console.log(this.selectedIndex);
 
-        this.initialX = -this.selectedIndex * cardWidth
+      this.initialX = -this.selectedIndex * cardWidth
     },
     mouseMoving (e) {
       const dragAmount = e.srcEvent.clientX - this.initialMouseX
       const targetX = this.initialCardsX + dragAmount
       if (e.direction === 2) {
-        // console.log("two");
         this.cardsX = this.initialX + e.deltaX;
       } else if (e.direction === 4) {
-        // console.log("four");
         this.cardsX = this.initialX + e.deltaX;
       }
-      // console.log({
-      //   dragAmount: dragAmount,
-      //   initialMouseX: this.initialMouseX,
-      //   targetX: targetX,
-      //   initialCardsX: this.initialCardsX,
-      //   cardsX: this.cardsX
-      // });
+
 
     }
   },
@@ -100,7 +87,9 @@ export default {
     selectedSlide () {
       return this.slides[this.selectedIndex]
     }
-  }
+  },
+
+  components: { Card, Header }
 
 }
 
@@ -110,31 +99,30 @@ export default {
 
 .slider {
   overflow: hidden;
-  background-color: #1F1140;
-  width: 360px;
+  /* background-color: #1F1140; */
+  width: 100%;
   height: 640px;
 }
 
 .slider-cards {
   position: relative;
-  width: 900px;
-  margin: 20px 35px;
+  width: 1800px;
+  margin: 20px 50px;
   z-index: 1;
 }
 
 .slider-card {
   display: inline-block;
-  background-color: grey;
+  background-color: #EEF9F8;
   overflow: hidden;
-  width: 260px;
-  height: 360px;
+  width: 270px;
+  height: 450px;
   margin-right: 30px;
   border-radius: 12px;
-  box-shadow:0px 60px 20px -20px rgba(0, 0, 0, 0.3)
+  box-shadow:0px 60px 20px -20px rgba(0, 0, 0, 0.3);
+  border: solid #0E425D 1px;
 }
-.slider-card img {
-  width: 100%;
-}
+
 .slider-info {
   position: relative;
   overflow: hidden;
