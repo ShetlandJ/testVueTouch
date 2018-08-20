@@ -70,17 +70,19 @@ export default {
       const nearestSlide = -Math.round(this.cardsX / cardWidth)
       this.selectedIndex = Math.min(Math.max(0, nearestSlide), this.slides.length -1)
       TweenLite.to(this, 0.3, {cardsX: -this.selectedIndex * cardWidth})
-      this.initialX = this.cardsX
-      console.log(this.initialX);
+      // console.log(nearestSlide);
+      // console.log(this.selectedIndex);
+
+        this.initialX = -this.selectedIndex * cardWidth
     },
     mouseMoving (e) {
       const dragAmount = e.srcEvent.clientX - this.initialMouseX
       const targetX = this.initialCardsX + dragAmount
       if (e.direction === 2) {
-        console.log("two");
+        // console.log("two");
         this.cardsX = this.initialX + e.deltaX;
       } else if (e.direction === 4) {
-        console.log("four");
+        // console.log("four");
         this.cardsX = this.initialX + e.deltaX;
       }
       // console.log({
