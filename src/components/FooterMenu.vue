@@ -60,14 +60,16 @@ h5 {
   height: 65px;
   width: 100%;
   overflow:hidden;
-  padding: 2%;
   font-family: 'PT Sans', sans-serif;
+  padding: 1rem 1.5rem 4rem;
 }
 
 .column {
   color: white;
   margin-top: 0;
   margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .icon {

@@ -1,12 +1,12 @@
 <template>
   <!-- <div class="test"> -->
 
-    <div class="columns">
-      <div class="column">
+    <div class="columns is-mobile">
+      <div class="column is-three-quarters logo-container">
         <img src="../assets/logo.png" class="logo">
       </div>
-      <div class="column">
-        <i class="fa fa-bars"></i>
+      <div class="column is-quarter hamburger">
+        <i class="fa fa-2x fa-bars"></i>
       </div>
     </div>
 
@@ -26,6 +26,16 @@ export default {
 
 <style scoped>
 
+.logo-container {
+  display: flex;
+  align-items: center;
+
+}
+.hamburger {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .the-menu {
   display: flex;

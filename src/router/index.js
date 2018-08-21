@@ -10,6 +10,8 @@ import VueTouch from 'vue-touch';
 Vue.use(Router)
 Vue.use(VueTouch);
 
+import 'bulma/css/bulma.css'
+
 
 export default new Router({
   routes: [
