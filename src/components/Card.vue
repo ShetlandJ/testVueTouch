@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="booking-card">
     <div class="profile-header">
       <img src="https://i.imgur.com/gdl6n8v.png" class="child-pic">
       <h1 class="name">James</h1>

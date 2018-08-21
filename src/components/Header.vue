@@ -1,7 +1,16 @@
 <template>
-  <div class="header">
-    <img src="../assets/logo.png" class="logo">
-  </div>
+  <!-- <div class="test"> -->
+
+    <div class="columns">
+      <div class="column">
+        <img src="../assets/logo.png" class="logo">
+      </div>
+      <div class="column">
+        <i class="fa fa-bars"></i>
+      </div>
+    </div>
+
+  <!-- </div> -->
 </template>
 
 <script>
@@ -15,18 +24,28 @@ export default {
 
 </script>
 
-<style lang="css">
+<style scoped>
 
-.logo {
-  padding-left: 10px;
-  width: 70%;
+
+.the-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
 }
 
-.header {
+.the-header {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+}
+
+.logo {
+  padding: 10px;
+  width: 60%;
+}
+
+.columns {
   background-color: #0E425D;
-  height: 110px;
 }
 
 </style>

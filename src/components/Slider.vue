@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="main">
     <Header />
 
     <div id="slider" class="slider" >
@@ -12,11 +12,14 @@
           class="slider-card"
           >
           <Card :slide="slide" />
+
         </div>
       </div>
     </v-touch>
 
   </div>
+
+  <FooterMenu />
 </div>
 
 </template>
@@ -24,6 +27,8 @@
 <script>
 import Card from './Card';
 import Header from './Header'
+import FooterMenu from './FooterMenu'
+
 
 export default {
   data() {
@@ -89,7 +94,11 @@ export default {
     }
   },
 
-  components: { Card, Header }
+  components: {
+    Card,
+    Header,
+    FooterMenu
+  }
 
 }
 
@@ -109,6 +118,7 @@ export default {
   width: 1800px;
   margin: 20px 50px;
   z-index: 1;
+  margin-top: 50px;
 }
 
 .slider-card {
